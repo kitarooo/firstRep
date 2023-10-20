@@ -13,6 +13,13 @@ public class BanknotesAndCoins {
                 System.out.println("Notes: " + (m / balance2[i]) + " nota(s) de R$ " + balance[i]);
                 m = m % balance2[i];
             }
+
+            /*57673 / 10000 = 5 + 100.00;
+            7673 / 5000 = 1 + 50.00;
+            673 / 500 = 1 + 5.00;
+            73 / 50 = 1 + 0.50;
+            23 / 10 = 2 + 0.10;
+            3 / 1 = 3 + 0.01*/
         }
     }
 }

@@ -7,24 +7,31 @@ public class GameTimeWithMinutes {
         int startGameHour = input.nextInt();
         int startGameMinutes = input.nextInt();
         int finishGameHour = input.nextInt();
-        int finishGameMinute = input.nextInt();
+        int finishGameMinutes = input.nextInt();
 
-        int hours = finishGameHour - startGameHour;
-        int minutes = finishGameMinute - startGameMinutes;
+        int hours = 0;
+        int minutes = 0;
 
-        if (hours < 0) {
-            hours = 24 + (finishGameMinute - startGameMinutes);
+
+        if (startGameHour >= 0 && startGameHour <= 24 && startGameMinutes >= 0 && startGameMinutes <= 60 &&
+            finishGameHour >= 0 && finishGameHour <= 24 && finishGameMinutes >= 0 && finishGameMinutes <= 60) {
+            if (finishGameHour >= startGameHour) {
+                hours = finishGameHour - startGameHour;
+            } else if (finishGameHour < startGameHour) {
+                hours = 24 - (finishGameHour - startGameHour + 24);
+            }
+
+            if (finishGameMinutes >= startGameMinutes) {
+                minutes = finishGameMinutes - startGameMinutes;
+            } else if (finishGameMinutes < startGameMinutes) {
+                minutes = finishGameMinutes - startGameMinutes + 60;
+                hours--;
+            }
+
+            if (hours == 0 && minutes == 0){
+                hours = 24;
+            }
         }
-
-        if (minutes < 0) {
-            minutes = 60 + (finishGameMinute - startGameMinutes);
-            hours--;
-        }
-
-        if (startGameMinutes == finishGameMinute && startGameHour == finishGameHour) {
-            System.out.println("O JOGO DUROU 24 HORA(S) E 0 MINUTO(S)");
-        } else {
-            System.out.println(("O JOGO DUROU " + hours + " HORA(S) E " + minutes + " MINUTO(S)"));
-        }
+        System.out.println(("O JOGO DUROU " + hours + " HORA(S) E " + minutes + " MINUTO(S)"));
     }
 }
