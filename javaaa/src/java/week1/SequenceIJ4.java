@@ -1,3 +1,5 @@
+package week1;
+
 import java.text.DecimalFormat;
 
 public class SequenceIJ4 {

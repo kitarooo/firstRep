@@ -1,3 +1,5 @@
+package week1;
+
 import java.util.Scanner;
 
 public class GameTimeWithMinutes {
@@ -12,13 +14,15 @@ public class GameTimeWithMinutes {
         int hours = 0;
         int minutes = 0;
 
+        //7 50 7 45
+
 
         if (startGameHour >= 0 && startGameHour <= 24 && startGameMinutes >= 0 && startGameMinutes <= 60 &&
             finishGameHour >= 0 && finishGameHour <= 24 && finishGameMinutes >= 0 && finishGameMinutes <= 60) {
             if (finishGameHour >= startGameHour) {
                 hours = finishGameHour - startGameHour;
             } else if (finishGameHour < startGameHour) {
-                hours = 24 - (finishGameHour - startGameHour + 24);
+                hours = 24 - (finishGameHour + startGameHour);
             }
 
             if (finishGameMinutes >= startGameMinutes) {
